@@ -6,21 +6,21 @@ public class Main
 		int operation, carNumber;
 		
 		//Available cars 
-	  Cars[] car = new Cars[3]; //array of objects
-	  car[0] = new Cars("Toyota", "Vios", 1500.0, true);
-	  car[1] = new Cars("Honda", "Civic", 2000.0, true);
-	  car[2] = new Cars("Ford", "Ranger", 2500.0, true);
+	  	Cars[] car = new Cars[3]; //array of objects
+	  	car[0] = new Cars("Toyota", "Vios", 1500.0, true);
+	  	car[1] = new Cars("Honda", "Civic", 2000.0, true);
+	  	car[2] = new Cars("Ford", "Ranger", 2500.0, true);
 		
 		System.out.println("----------------------------");
 		System.out.println("Welcome to Car Rental System");
-	  System.out.println("----------------------------\n");
+	  	System.out.println("----------------------------\n");
 		
 		//Displaying available cars
-    System.out.println("Available Cars: ");
-    for (int i = 0; i < car.length; i++){
-        System.out.print("[" + i + "] ");
-        car[i].displayCars();
-    }	    
+    	System.out.println("Available Cars: ");
+    	for (int i = 0; i < car.length; i++){
+        	System.out.print("[" + i + "] ");
+        	car[i].displayCars();
+    	}	    
 		
 		do{
 	    //Operation
