@@ -11,71 +11,75 @@ public class Main
 	  	car[1] = new Cars("Honda", "Civic", 2000.0, true);
 	  	car[2] = new Cars("Ford", "Ranger", 2500.0, true);
 		
-		System.out.println("----------------------------");
-		System.out.println("Welcome to Car Rental System");
-	  	System.out.println("----------------------------\n");
-		
-		//Displaying available cars
-    	System.out.println("Available Cars: ");
-    	for (int i = 0; i < car.length; i++){
-        	System.out.print("[" + i + "] ");
-        	car[i].displayCars();
-    	}	    
-		
 		do{
-	    //Operation
-    	System.out.println("\nChoose an option: ");
-    	System.out.println("1. Rent a car");
-    	System.out.println("2. Return a car");
-    	System.out.println("3. View cars");
-    	System.out.println("4. Exit");
-    	System.out.print("Enter your choice: ");
-    	operation = scanner.nextInt();
-    		
-    	switch(operation){
-    	    //Rent a car
-    	    case 1:
-    	        carNumber = inputCarNumber(scanner, car.length);
-    	        if(car[carNumber].isAvailable){
-       		        System.out.print("Enter number of rental days: ");
-       		        int rentalDays = scanner.nextInt();
-       		        car[carNumber].rentCar(rentalDays);
-       		        System.out.println("----------------------------\n");
-    	        } else {
-    	            System.out.println("[Invalid Operation] The car is already rented\n");
-    	        }
-    	        break;
-    		    
-    	    //Return a car  
-    	    case 2:
-    	        carNumber = inputCarNumber(scanner, car.length);
-    	        if (!(car[carNumber].isAvailable)){
-    	            car[carNumber].returnCar();
-    	            System.out.println("----------------------------\n");
-    	        } else {
-    	           System.out.println("[Invalid Operation] The car hasn't been rented\n"); 
-    	        }
-    	        break;
-    	    
-    	    //View cars
-    	    case 3:
-           		System.out.println("\nAvailable Cars: ");
-           		for (int i = 0; i < 3; i++){
-           		    System.out.print("[" + i + "] ");
-           		    car[i].displayCars();
-           	    }
-           	    System.out.println("----------------------------\n");
-    	        break;
-    	    
-    	    //Exit system
-    	    case 4:
-    	        System.out.println("\nThank you for using Simple Car Rental System!");
-    	        System.exit(0);
-    	        break;
-    	        
-    	    default:
-    	        System.out.println("[Invalid Operation] Enter a valid number!\n");
-    	        break;
+			System.out.println("----------------------------");
+			System.out.println("Welcome to Car Rental System");
+	  		System.out.println("----------------------------");
+		
+			//Displaying available cars
+    		System.out.println("Available Cars: ");
+	    	for (int i = 0; i < car.length; i++){
+    	    	System.out.print("[" + i + "] ");
+        		car[i].displayCars();
+    		}	    
+		    //Operation
+	    	System.out.println("\nChoose an option: ");
+	    	System.out.println("1. Rent a car");
+	    	System.out.println("2. Return a car");
+	    	System.out.println("3. View cars");
+	    	System.out.println("4. Exit");
+	    	System.out.print("Enter your choice: ");
+	    	operation = scanner.nextInt();
+	    		
+	    	switch(operation){
+	    	    //Rent a car
+	    	    case 1:
+	    	        System.out.println("\n----------------------------");
+	    	        System.out.println("         Rent A Car");
+	    	        carNumber = inputCarNumber(scanner, car.length);
+	    	        if(car[carNumber].isAvailable){
+	       		        System.out.print("Enter number of rental days: ");
+	       		        int rentalDays = scanner.nextInt();
+	       		        car[carNumber].rentCar(rentalDays);
+	       		        System.out.println("----------------------------\n");
+	    	        } else {
+	    	            System.out.println("[Invalid Operation] The car is already rented\n");
+	    	        }
+	    	        break;
+	    		    
+	    	    //Return a car  
+	    	    case 2:
+	    	        System.out.println("\n----------------------------");
+	    	        System.out.println("       Return A Car");
+	    	        carNumber = inputCarNumber(scanner, car.length);
+	    	        if (!(car[carNumber].isAvailable)){
+	    	            car[carNumber].returnCar();
+	    	            System.out.println("----------------------------\n");
+	    	        } else {
+	    	           System.out.println("[Invalid Operation] The car hasn't been rented\n"); 
+	    	        }
+	    	        break;
+	    	    
+	    	    //View cars
+	    	    case 3:
+	    	        System.out.println("\n----------------------------");
+	           		System.out.println("Available Cars: ");
+	           		for (int i = 0; i < 3; i++){
+	           		    System.out.print("[" + i + "] ");
+	           		    car[i].displayCars();
+	           	    }
+	           	    System.out.println("----------------------------\n");
+	    	        break;
+	    	    
+	    	    //Exit system
+	    	    case 4:
+	    	        System.out.println("\nThank you for using Simple Car Rental System!");
+	    	        System.exit(0);
+	    	        break;
+	    	        
+	    	    default:
+	    	        System.out.println("[Invalid Operation] Enter a valid number!\n");
+	    	        break;
     	} 
 		} while(operation != 4);
     
@@ -86,7 +90,7 @@ public class Main
 	static int inputCarNumber(Scanner scanner, int carCount){
 	    int carNumber;
         do{
-            System.out.print("\nEnter the car number: ");
+            System.out.print("Enter the car number: ");
             carNumber = scanner.nextInt();
             if (carNumber < 0 || carNumber > (carCount-1)) {
                 System.out.println("[Invalid car number] Please try again!");
@@ -120,14 +124,14 @@ class Cars{
                             " for " + rentalDays + " day/s." );
         total = this.dailyRate * rentalDays;
         System.out.printf("Total cost: $%.2f%n", total);
-        System.out.println("Car rented successfully!\n");            
+        System.out.println("Car rented successfully!");            
     }
     
     //Method to return a car
     void returnCar(){
         this.isAvailable = true;
         System.out.println(this.name + " " + this.model + " has been returned.");
-        System.out.println("Car is now available again!\n");
+        System.out.println("Car is now available again!");
     }
     
     //Method to display available cars
